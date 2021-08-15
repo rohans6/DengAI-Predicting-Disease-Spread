@@ -41,3 +41,6 @@ Performance is evaluated according to the mean absolute error.
 
 # Submission format
 The format for the submission file is simply the (city, year, weekofyear) and the predicted total_cases for San Juan or Iquitos (for an example, see SubmissionFormat.csv on the data download page). The total_cases should be represented as integer values.
+
+# Competition Link
+https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/
