@@ -52,5 +52,45 @@ The total cases in a month for year=[1990,1993,1996,1999,2002,2005,2008] are plo
 ### Iquitos
 ![Iquitos](Iq.png)
 
+# Preprocessing
+* Handled Missing Values using Linear Interpolation for both the Models.
+## Model 1 Preprocessing:-
+* Converted the Temperatures from Kelvin to Celsius scale.
+* Added Seasons variable which contains values:-[Summer,Fall,Spring,Winter] to capture seasonal trends in the data.
+* Normalized the Numerical features using StandardScaler and used One-Hot Encoding to encode Categorical features.
+## Model 2 Preprocessing:-
+* Normalized the Numerical features using StandardScaler and used One-Hot Encoding to encode Categorical features.
+* Converted the data using fixed window method as we do for Sequence models like:- LSTMS,GRU;s
+
+# Model 1
+Model-1 consists of simple ANN model trained with mean_absolute_error loss function and adam optimizer
+Used ReduceonPlateau technique to reduce learning rate.
+Model was trained for 1000 epochs for batcsize=32
+```
+Model1 is as below
+model = Sequential()
+model.add(Dense(6, input_dim=len(X_train.keys()), activation='relu'))
+model.add(Dropout(0.8))
+model.add(Dense(1))
+model.compile(loss='mean_absolute_error', optimizer='adam')
+```
+# Model 2
+In Model 2 I prepared data as it is prepared for LSTM network and instead of LSTM I passed it through some dense layers with BatchNormalization and Dropout layer added to prevent Overfitting.Model was trained for 8 epochs with batchsize=16
+```
+model = tf.keras.Sequential([
+    tf.keras.layers.Input(shape=input_shape),
+    tf.keras.layers.Dense(nodes, activation='selu'),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(nodes/2, activation='selu'),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(1)
+  ])
+model.compile(loss='mae',
+                optimizer=optimizer,
+                metrics=['mae', 'mse'])
+```
+
+
 # Competition Link
 https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/
