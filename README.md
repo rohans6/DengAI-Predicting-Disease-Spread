@@ -90,7 +90,13 @@ model.compile(loss='mae',
                 optimizer=optimizer,
                 metrics=['mae', 'mse'])
 ```
-
+# Results
+Model-1 acheived MAE=20.01 
+Model-2 achieved MAE=18.47
 
 # Competition Link
+The Project is based on competition hosted by Driven data
+No of Competitors =11330
+## Model 1 gave me Rank of 201
+## Model 2 gave me Rank of 150
 https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/
