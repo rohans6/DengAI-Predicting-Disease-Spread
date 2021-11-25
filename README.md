@@ -47,9 +47,10 @@ Performance is evaluated according to the mean absolute error.
 
 # EDA:-
 The total cases in a month for year=[1990,1993,1996,1999,2002,2005,2008] are plotted for cities of  San Juan and Iquitos
+### SanJuan
 ![SanJuan](download.png)
-
-![Iquitos](download (1).png)
+### Iquitos
+![Iquitos](Iq.png)
 
 # Competition Link
 https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/
